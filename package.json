@@ -45,6 +45,6 @@
   "scripts": {
     "dev": "npm run babel-build -- --watch",
     "release": "rm -rf dist && npm run babel-build && npm publish dist",
-    "babel-build": "mkdir -p dist && cp {package.json,yarn.lock,package-lock.json,README.md} dist/ && npx babel src --out-dir dist --source-maps --copy-files"
+    "babel-build": "sh build.sh"
   }
 }
