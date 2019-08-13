@@ -1,6 +1,8 @@
 #!/bin/sh
 
 mkdir -p dist
-ls -la
-cp {package.json,yarn.lock,package-lock.json,README.md} dist/
+cp ./package.json ./dist/
+cp ./yarn.lock ./dist/
+cp ./package-lock.json ./dist/
+cp ./README.md ./dist/
 npx babel src --out-dir dist --source-maps --copy-files
