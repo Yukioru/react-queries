@@ -22,6 +22,10 @@ jobs:
           NPM_AUTH_TOKEN: ${{secrets.NPM}}
           GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
       - run: npm test
+        env:
+          NODE_ENV: development
+          NPM_AUTH_TOKEN: ${{secrets.NPM}}
+          GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
 
   publish-npm:
     needs: build
@@ -46,7 +50,7 @@ jobs:
         with:
           version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: '@yukioru'
+          scope: '@Yukioru'
       - run: npm run release
         env:
           NODE_ENV: development
