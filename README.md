@@ -1,6 +1,12 @@
 # react-queries
 React component for manipulate media queries
 
+![react-queries](https://img.shields.io/david/yukioru/react-queries?style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-queries?style=flat-square)
+![license](https://img.shields.io/npm/l/react-queries?style=flat-square)
+![npm](https://img.shields.io/npm/v/react-queries?style=flat-square)
+![Codacy grade](https://img.shields.io/codacy/grade/39ab7d3bec48456cab200e3f2507441c?style=flat-square)
+
 ## How to install
 If using npm: `npm install react-queries`
 
@@ -8,7 +14,7 @@ If using yarn: `yarn add react-queries`
 
 ## How to use
 
-### Easy:
+### Easy
 ```javascript
 import React from 'react';
 import Query from 'react-queries';
@@ -30,7 +36,7 @@ Displayed as @media:
 @media screen and (min-width: 600px) and (max-width: 1200px)
 ```
 
-### Advanced:
+### Advanced
 ```javascript
 import React from 'react';
 import Query from 'react-queries';
@@ -85,7 +91,6 @@ Displayed as @media:
 |         | width                |
 |         | minWidth             |
 |         | maxWidth             |
-
 
 ## Unsupported match props
 | Deprecated Types |
