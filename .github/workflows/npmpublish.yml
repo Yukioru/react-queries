@@ -40,6 +40,7 @@ jobs:
         env:
           NODE_ENV: development
           NPM_AUTH_TOKEN: ${{secrets.NPM}}
+          GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
 
   publish-gpr:
     needs: build
@@ -54,4 +55,5 @@ jobs:
       - run: npm run release
         env:
           NODE_ENV: development
+          NPM_AUTH_TOKEN: ${{secrets.NPM}}
           GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
