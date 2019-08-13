@@ -77,7 +77,7 @@ function isQueries(props, propName, componentName) {
   validateType(type, `${propName}.type`, componentName);
   const queryProps = omit(props[propName], 'type');
   const queries = Object.keys(queryProps);
-  queries.forEach((key) => {
+  queries.forEach(key => {
     const value = queryProps[key];
     if (!mediaQueries.includes(key)) {
       throw new Error(`
@@ -126,7 +126,7 @@ class MediaQuery extends PureComponent {
     if (typeof window !== 'undefined') {
       const isAdvanced = some(match, Array.isArray);
       let media = Object.keys(match)
-        .map((e) => {
+        .map(e => {
           const value = match[e];
           const val = this.constructor.prepareMediaValue(value);
           if (!val) return null;
