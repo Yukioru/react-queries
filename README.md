@@ -1,6 +1,7 @@
 # react-queries
 React component for manipulate media queries
 
+![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-queries/latest?style=flat-square)](https://bundlephobia.com/result?p=react-queries@latest)
 ![license](https://img.shields.io/npm/l/react-queries?style=flat-square)
 [![npm](https://img.shields.io/npm/v/react-queries?style=flat-square)](https://www.npmjs.com/package/react-queries)
