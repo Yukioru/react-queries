@@ -4,8 +4,10 @@ React component for manipulate media queries
 ![react-queries](https://img.shields.io/david/yukioru/react-queries?style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-queries?style=flat-square)
 ![license](https://img.shields.io/npm/l/react-queries?style=flat-square)
-![npm](https://img.shields.io/npm/v/react-queries?style=flat-square)
+[![npm](https://img.shields.io/npm/v/react-queries?style=flat-square)](https://www.npmjs.com/package/react-queries)
 [![Codacy Badge](https://img.shields.io/codacy/grade/39ab7d3bec48456cab200e3f2507441c?style=flat-square)](https://www.codacy.com/app/akigami/react-queries?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Yukioru/react-queries&amp;utm_campaign=Badge_Grade)
+
+
 
 ## How to install
 If using npm: `npm install react-queries`
