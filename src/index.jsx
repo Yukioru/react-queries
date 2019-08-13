@@ -139,7 +139,7 @@ class MediaQuery extends PureComponent {
           }
           return this.constructor.formatQuery(e, val);
         })
-        .filter((e) => !!e);
+        .filter(e => !!e);
       if (isAdvanced) media = media.join(', ');
       else media = media.join(' and ');
       if (media) {
