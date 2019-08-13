@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           version: 12
-      - run: npm ci
+      - run: npm install
         env:
           NODE_ENV: development
           NPM_AUTH_TOKEN: ${{secrets.NPM}}
