@@ -5,4 +5,4 @@ cp ./package.json ./dist/
 cp ./yarn.lock ./dist/
 cp ./package-lock.json ./dist/
 cp ./README.md ./dist/
-npx babel src --out-dir dist --source-maps --copy-files
+./node_modules/.bin/babel src --out-dir dist --source-maps --copy-files
