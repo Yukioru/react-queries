@@ -1,5 +1,4 @@
 import { PureComponent } from 'react';
-import kebabCase from 'lodash.kebabcase';
 import PropTypes from 'prop-types';
 
 const mediaTypes = [
@@ -104,8 +103,12 @@ class MediaQuery extends PureComponent {
     return val;
   }
 
+  static convertCamelToKebab(str) {
+    return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+  }
+
   static formatQuery(key, value) {
-    return `(${kebabCase(key)}: ${value})`;
+    return `(${this.convertCamelToKebab(key)}: ${value})`;
   }
 
   constructor(props) {
