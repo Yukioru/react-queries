@@ -1,6 +1,4 @@
 import { PureComponent } from 'react';
-import some from 'lodash.some';
-import omit from 'lodash.omit';
 import kebabCase from 'lodash.kebabcase';
 import PropTypes from 'prop-types';
 
@@ -73,9 +71,8 @@ function validateType(type, propName, componentName) {
 }
 
 function isQueries(props, propName, componentName) {
-  const { type } = props[propName];
+  const { type, ...queryProps } = props[propName];
   validateType(type, `${propName}.type`, componentName);
-  const queryProps = omit(props[propName], 'type');
   const queries = Object.keys(queryProps);
   queries.forEach(key => {
     const value = queryProps[key];
@@ -124,7 +121,12 @@ class MediaQuery extends PureComponent {
   componentDidMount() {
     const { match } = this.props;
     if (typeof window !== 'undefined') {
-      const isAdvanced = some(match, Array.isArray);
+      let isAdvanced = false;
+      Object.keys(match).forEach(key => {
+        if (match[key] && Array.isArray(match[key])) {
+          isAdvanced = true;
+        }
+      });
       let media = Object.keys(match)
         .map(e => {
           const value = match[e];

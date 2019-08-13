@@ -43,9 +43,7 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "lodash.kebabcase": "^4.1.1",
-    "lodash.omit": "^4.5.0",
-    "lodash.some": "^4.6.0"
+    "lodash.kebabcase": "^4.1.1"
   },
   "scripts": {
     "dev": "npm run babel-build -- --watch",
