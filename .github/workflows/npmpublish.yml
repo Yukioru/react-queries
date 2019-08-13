@@ -28,9 +28,9 @@ jobs:
         with:
           version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+      - run: npm run release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npmtoken}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM}}
 
   publish-gpr:
     needs: build
@@ -42,6 +42,6 @@ jobs:
           version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@yukioru'
-      - run: npm publish
+      - run: npm run release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.githubtoken}}
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB}}
