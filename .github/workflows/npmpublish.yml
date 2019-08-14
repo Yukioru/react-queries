@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -22,7 +22,7 @@ jobs:
       - run: npm test
 
   publish-npm:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -34,11 +34,11 @@ jobs:
         env:
           NODE_ENV: development
       - run: npm run babel-build
-      - run: npm config set 'https://registry.npmjs.org/:_authToken' '${{secrets.NPM}}'
+      - run: echo ${{secrets.npmrc_npm}} > .npmrc
       - run: npm publish ./dist
 
   publish-gpr:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -51,5 +51,5 @@ jobs:
         env:
           NODE_ENV: development
       - run: npm run babel-build
-      - run: npm config set @Yukioru:registry 'https://npm.pkg.github.com/:_authToken' '${{secrets.GITHUB}}'
+      - run: echo ${{secrets.npmrc_npm}} > .npmrc
       - run: npm publish ./dist
