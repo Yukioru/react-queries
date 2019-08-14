@@ -19,7 +19,6 @@ jobs:
       - run: npm install
         env:
           NODE_ENV: development
-      - run: npm run babel-build
       - run: npm test
 
   publish-npm:
@@ -31,6 +30,10 @@ jobs:
         with:
           version: 12
           registry-url: https://registry.npmjs.org/
+      - run: npm install
+        env:
+          NODE_ENV: development
+      - run: npm run babel-build
       - run: npm config set 'https://registry.npmjs.org/:_authToken' '${{secrets.NPM}}'
       - run: npm publish ./dist
 
@@ -44,5 +47,9 @@ jobs:
           version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@Yukioru'
+      - run: npm install
+        env:
+          NODE_ENV: development
+      - run: npm run babel-build
       - run: npm config set @Yukioru:registry 'https://npm.pkg.github.com/:_authToken' '${{secrets.GITHUB}}'
       - run: npm publish ./dist
