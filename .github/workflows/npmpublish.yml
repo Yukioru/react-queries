@@ -21,6 +21,11 @@ jobs:
           NODE_ENV: development
           NPM_AUTH_TOKEN: ${{secrets.NPM}}
           GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
+      - run: npm run babel-build
+        env:
+          NODE_ENV: development
+          NPM_AUTH_TOKEN: ${{secrets.NPM}}
+          GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
       - run: npm test
         env:
           NODE_ENV: development
@@ -36,7 +41,7 @@ jobs:
         with:
           version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm run release
+      - run: npm publish dist
         env:
           NODE_ENV: development
           NPM_AUTH_TOKEN: ${{secrets.NPM}}
@@ -52,7 +57,7 @@ jobs:
           version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@Yukioru'
-      - run: npm run release
+      - run: npm publish dist
         env:
           NODE_ENV: development
           NPM_AUTH_TOKEN: ${{secrets.NPM}}
