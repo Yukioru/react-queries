@@ -19,18 +19,8 @@ jobs:
       - run: npm install
         env:
           NODE_ENV: development
-          NPM_AUTH_TOKEN: ${{secrets.NPM}}
-          GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
       - run: npm run babel-build
-        env:
-          NODE_ENV: development
-          NPM_AUTH_TOKEN: ${{secrets.NPM}}
-          GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
       - run: npm test
-        env:
-          NODE_ENV: development
-          NPM_AUTH_TOKEN: ${{secrets.NPM}}
-          GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
 
   publish-npm:
     needs: build
@@ -41,11 +31,8 @@ jobs:
         with:
           version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish dist
-        env:
-          NODE_ENV: development
-          NPM_AUTH_TOKEN: ${{secrets.NPM}}
-          GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
+      - run: npm config set 'https://registry.npmjs.org/:_authToken' '${{secrets.NPM}}'
+      - run: npm publish ./dist
 
   publish-gpr:
     needs: build
@@ -57,8 +44,5 @@ jobs:
           version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@Yukioru'
-      - run: npm publish dist
-        env:
-          NODE_ENV: development
-          NPM_AUTH_TOKEN: ${{secrets.NPM}}
-          GITPKG_AUTH_TOKEN: ${{secrets.GITHUB}}
+      - run: npm config set @Yukioru:registry 'https://npm.pkg.github.com/:_authToken' '${{secrets.GITHUB}}'
+      - run: npm publish ./dist
