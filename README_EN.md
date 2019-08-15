@@ -1,6 +1,8 @@
 # react-queries
 React component for manipulate media queries
 
+Documentation Language: [Russian](https://github.com/Yukioru/react-queries/blob/master/README.md), [English](https://github.com/Yukioru/react-queries/blob/master/README_EN.md)
+
 ![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-queries/latest?style=flat-square)](https://bundlephobia.com/result?p=react-queries@latest)
 ![license](https://img.shields.io/npm/l/react-queries?style=flat-square)
