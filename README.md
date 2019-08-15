@@ -66,7 +66,7 @@ Displayed as @media:
 | Field               | Type             | Description                        |
 |---------------------|------------------|------------------------------------|
 | type                | string           | One of supported types² (optional) |
-| [query of queries]² | string \| number \| [type: string, query: string \| number] | One if supported queries³. In advanced usage - field is required type and query, but don't use type as field          |
+| [query of queries]³ | string \| number \| [type²: string, query³: string \| number] | One if supported queries³. In advanced usage - field is required type and query, but don't use type as field          |
 
 
 ## Supported match props
