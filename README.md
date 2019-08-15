@@ -1,5 +1,7 @@
 # react-queries
-React component for manipulate media queries
+Реакт компонент для управления медиа запросами
+
+Язык документации: [Русский](https://github.com/Yukioru/react-queries/blob/master/README.md), [English](https://github.com/Yukioru/react-queries/blob/master/README_EN.md)
 
 ![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-queries/latest?style=flat-square)](https://bundlephobia.com/result?p=react-queries@latest)
@@ -7,14 +9,14 @@ React component for manipulate media queries
 [![npm](https://img.shields.io/npm/v/react-queries?style=flat-square)](https://www.npmjs.com/package/react-queries)
 [![Codacy Badge](https://img.shields.io/codacy/grade/39ab7d3bec48456cab200e3f2507441c?style=flat-square)](https://www.codacy.com/app/akigami/react-queries?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Yukioru/react-queries&amp;utm_campaign=Badge_Grade)
 
-## How to install
-If using npm: `npm install react-queries`
+## Как установить
+Если используете npm: `npm install react-queries`
 
-If using yarn: `yarn add react-queries`
+Если используете yarn: `yarn add react-queries`
 
-## How to use
+## Как использовать
 
-### Easy
+### Простой
 ```javascript
 import React from 'react';
 import Query from 'react-queries';
@@ -27,16 +29,16 @@ const Example = () => (
       maxWidth: 1200,
     }}
   >
-    Some content
+    Какой-то контент
   </Query>
 );
 ```
-Displayed as @media:
+Отобразится как @media:
 ```css
 @media screen and (min-width: 600px) and (max-width: 1200px)
 ```
 
-### Advanced
+### Расширенный
 ```javascript
 import React from 'react';
 import Query from 'react-queries';
@@ -48,29 +50,29 @@ const Example = () => (
       maxWidth: ['print', 1200],
     }}
   >
-    Some content
+    Какой-то контент
   </Query>
 );
 ```
-Displayed as @media:
+Отобразится как @media:
 ```css
 @media screen and (min-width: 600px), print and (max-width: 1200px)
 ```
 
-## Props
-| Prop  | Type            | Required |
-|-------|-----------------|----------|
-| match | Shape(Matches)¹ | True     |
+## Пропсы
+| Поле  | Тип             | Обязательно |
+|-------|-----------------|-------------|
+| match | Shape(Matches)¹ | Да          |
 
 ### ¹Matches
-| Field               | Type             | Description                        |
-|---------------------|------------------|------------------------------------|
-| type                | string           | One of supported types² (optional) |
-| [query of queries]³ | string \| number \| [type²: string, query³: string \| number] | One if supported queries³. In advanced usage - field is required type and query, but don't use type as field          |
+| Поле                  | Тип              | Описание                                    |
+|-----------------------|------------------|---------------------------------------------|
+| type                  | строка           | Один из поддерживаемых типов² (опционально) |
+| [запрос из запросов]³ | строка \| число \| [type²: строка, query³: строка \| число]    | Один из поддерживаемых запросов³. В расширенном использовании - поле является обязательным вместе с типом и запросом, но нельзя использовать поле типа отдельно |
 
 
-## Supported match props
-| Types²  | Queries³             |
+## Поддерживаемые match поля
+| Типы²   | Запросы³             |
 |---------|----------------------|
 | all     | aspectRatio          |
 | print   | minAspectRatio       |
@@ -104,8 +106,8 @@ Displayed as @media:
 |         | minWidth             |
 |         | maxWidth             |
 
-## Unsupported match props
-| Deprecated Types |
+## Неподдерживаемые match поля
+| Устаревшие типы  |
 |------------------|
 | braille          |
 | embossed         |
