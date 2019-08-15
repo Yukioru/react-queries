@@ -57,8 +57,20 @@ Displayed as @media:
 @media screen and (min-width: 600px), print and (max-width: 1200px)
 ```
 
+## Props
+| Prop  | Type            | Required |
+|-------|-----------------|----------|
+| match | Shape(Matches)¹ | True     |
+
+### ¹Matches
+| Field               | Type             | Description                        |
+|---------------------|------------------|------------------------------------|
+| type                | string           | One of supported types² (optional) |
+| [query of queries]² | string \| number \| [type: string, query: string \| number] | One if supported queries³. In advanced usage - field is required type and query, but don't use type as field          |
+
+
 ## Supported match props
-| Types   | Queries              |
+| Types²  | Queries³             |
 |---------|----------------------|
 | all     | aspectRatio          |
 | print   | minAspectRatio       |
