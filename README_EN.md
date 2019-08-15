@@ -71,7 +71,7 @@ Displayed as @media:
 | [query of queries]³ | string \| number \| [type²: string, query³: string \| number] | One if supported queries³. In advanced usage - field is required type and query, but don't use type as field          |
 
 
-## Supported match props
+## Supported match fields
 | Types²  | Queries³             |
 |---------|----------------------|
 | all     | aspectRatio          |
@@ -106,7 +106,7 @@ Displayed as @media:
 |         | minWidth             |
 |         | maxWidth             |
 
-## Unsupported match props
+## Unsupported match fields
 | Deprecated Types |
 |------------------|
 | braille          |
