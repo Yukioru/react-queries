@@ -2,6 +2,8 @@ import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import matchMedia from 'matchmediaquery';
 
+import { convertMatchToMedia } from './utils';
+
 const mediaTypes = [
   'all',
   'print',
@@ -90,63 +92,18 @@ function isQueries(props, propName, componentName) {
 }
 
 class MediaQuery extends PureComponent {
-  static prepareMediaValue(value) {
-    let val = value;
-    if (val === null || val === undefined) {
-      val = false;
-    }
-    if (Array.isArray(val)) {
-      return this.prepareMediaValue(val[1]);
-    }
-    if (typeof value === 'number') {
-      val = `${val}px`;
-    }
-    return val;
-  }
-
-  static convertCamelToKebab(str) {
-    return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
-  }
-
-  static formatQuery(key, value) {
-    return `(${this.convertCamelToKebab(key)}: ${value})`;
-  }
-
   constructor(props) {
     super(props);
     this.mql = null;
     this.mediaListener = this.mediaListener.bind(this);
+    this.state = {
+      match: false,
+    };
   }
-
-  state = {
-    match: false,
-  };
 
   componentDidMount() {
     const { match } = this.props;
-    let isAdvanced = false;
-    Object.keys(match).forEach(key => {
-      if (match[key] && Array.isArray(match[key])) {
-        isAdvanced = true;
-      }
-    });
-    let media = Object.keys(match)
-      .map(e => {
-        const value = match[e];
-        const val = this.constructor.prepareMediaValue(value);
-        if (!val) return null;
-        if (!isAdvanced && e === 'type') return val;
-        if (Array.isArray(value)) {
-          return `${value[0]} and ${this.constructor.formatQuery(e, val)}`;
-        }
-        if (isAdvanced) {
-          return `all and ${this.constructor.formatQuery(e, val)}`;
-        }
-        return this.constructor.formatQuery(e, val);
-      })
-      .filter(e => !!e);
-    if (isAdvanced) media = media.join(', ');
-    else media = media.join(' and ');
+    const media = convertMatchToMedia(match);
     if (media) {
       this.mql = matchMedia(media, {});
       this.mql.addListener(this.mediaListener);
@@ -161,7 +118,7 @@ class MediaQuery extends PureComponent {
     this.mql = null;
   }
 
-  mediaListener(event) {
+  mediaListener() {
     const { matches: match } = this.mql;
     this.setState({ match });
   }

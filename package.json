@@ -1,6 +1,6 @@
 {
   "name": "react-queries",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "React component for manipulate media queries",
   "main": "index.js",
   "keywords": [
@@ -8,7 +8,8 @@
     "query",
     "queries",
     "@media",
-    "react"
+    "react",
+    "styled"
   ],
   "author": "Andrey Kondalov <i@yukio.ru> (https://yukio.ru/)",
   "homepage": "https://github.com/Yukioru/react-queries#readme",
@@ -23,7 +24,10 @@
   "peerDependencies": {
     "prop-types": "*",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "emotion": "*",
+    "@emotion/core": "*",
+    "@emotion/styled": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -31,8 +35,12 @@
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "@emotion/core": "^10.1.1",
+    "@emotion/styled": "^10.0.27",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-emotion": "^10.0.33",
     "babel-preset-minify": "^0.5.1",
+    "emotion": "^10.0.27",
     "eslint": "^7.13.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
