@@ -1,6 +1,6 @@
 {
   "name": "react-queries",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "React component for manipulate media queries",
   "main": "index.js",
   "keywords": [
@@ -26,18 +26,18 @@
     "react-dom": "*"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.2",
-    "babel-preset-minify": "^0.5.0",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^18.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-minify": "^0.5.1",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
@@ -46,5 +46,8 @@
     "dev": "npm run babel-build -- --watch",
     "release": "rm -rf dist && npm run babel-build && npm publish dist",
     "babel-build": "sh build.sh"
+  },
+  "dependencies": {
+    "matchmediaquery": "^0.3.1"
   }
 }

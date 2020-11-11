@@ -1,5 +1,6 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import matchMedia from 'matchmediaquery';
 
 const mediaTypes = [
   'all',
@@ -123,46 +124,45 @@ class MediaQuery extends PureComponent {
 
   componentDidMount() {
     const { match } = this.props;
-    if (typeof window !== 'undefined') {
-      let isAdvanced = false;
-      Object.keys(match).forEach(key => {
-        if (match[key] && Array.isArray(match[key])) {
-          isAdvanced = true;
-        }
-      });
-      let media = Object.keys(match)
-        .map(e => {
-          const value = match[e];
-          const val = this.constructor.prepareMediaValue(value);
-          if (!val) return null;
-          if (!isAdvanced && e === 'type') return val;
-          if (Array.isArray(value)) {
-            return `${value[0]} and ${this.constructor.formatQuery(e, val)}`;
-          }
-          if (isAdvanced) {
-            return `all and ${this.constructor.formatQuery(e, val)}`;
-          }
-          return this.constructor.formatQuery(e, val);
-        })
-        .filter(e => !!e);
-      if (isAdvanced) media = media.join(', ');
-      else media = media.join(' and ');
-      if (media) {
-        this.mql = window.matchMedia(media);
-        this.mql.addListener(this.mediaListener);
-        this.mediaListener(this.mql);
+    let isAdvanced = false;
+    Object.keys(match).forEach(key => {
+      if (match[key] && Array.isArray(match[key])) {
+        isAdvanced = true;
       }
+    });
+    let media = Object.keys(match)
+      .map(e => {
+        const value = match[e];
+        const val = this.constructor.prepareMediaValue(value);
+        if (!val) return null;
+        if (!isAdvanced && e === 'type') return val;
+        if (Array.isArray(value)) {
+          return `${value[0]} and ${this.constructor.formatQuery(e, val)}`;
+        }
+        if (isAdvanced) {
+          return `all and ${this.constructor.formatQuery(e, val)}`;
+        }
+        return this.constructor.formatQuery(e, val);
+      })
+      .filter(e => !!e);
+    if (isAdvanced) media = media.join(', ');
+    else media = media.join(' and ');
+    if (media) {
+      this.mql = matchMedia(media, {});
+      this.mql.addListener(this.mediaListener);
+      this.mediaListener(this.mql);
     }
   }
 
   componentWillUnmount() {
-    if (typeof window !== 'undefined' && this.mql) {
-      this.mql.removeListener(this.mediaListener);
-    }
+    if (!this.mql) return;
+    this.mql.removeListener(this.mediaListener);
+    this.mql.dispose();
+    this.mql = null;
   }
 
   mediaListener(event) {
-    const { matches: match } = event;
+    const { matches: match } = this.mql;
     this.setState({ match });
   }
 
